@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+window.onload=function(){
+	
+	document.getElementById('login').onclick=function(){
+	//	var id=document.getElementById('id');
+		//var pw=document.getElementById('pw');
+		//location.href="login.jsp?id="+id.value+"&pw="+pw.value;
+		   </script>
+		<%
+		String id=(String)session.getAttribute("id");
+		String pw=(String)session.getAttribute("pw");
+
+		DBconn sdbm = new DBconn();
+		DBmem ret = sdbm.ckLogin(id,pw);
+		if(ret!=null){
+			out.println("로그인성공");
+			
+			session.setAttribute("id", id);
+			session.setAttribute("pw", pw);
+			session.setAttribute("name", ret.getName());
+			session.setAttribute("phone", ret.getPhone());
+			
+			out.println("세션에 저장 성공");
+			out.println("<a href='index.jsp' class='btn btn-primary'>메인페이지</a>");
+		}
+		else{
+			out.println("로그인실패");
+		}
+		%>
+		   <script>
+	}
+	
+	document.getElementById('signup').onclick=function(){
+		location.href="signup.jsp";
+	}
+}
+
+</script>
+<body>
+<div>
+<label for="id" >아이디</label><input type="text" id="id" >
+</div>
+<div>
+<label for="pw" >비번</label><input type="password" id="pw">
+</div>
+<div>
+<input type="button" value="로그인" id="login">
+</div>
+<div>
+<input type="button" value="회원가입" id="signup">
+</div>
+</body>
+</html>
