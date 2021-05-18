@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>대구축제</title>
@@ -17,29 +16,23 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="./styles.css" rel="stylesheet" />
-    </head>
-
-    <script>
-var index=0;
-window.onload=function(){
-	slideShow();
+<title>축제 상세 정보</title>
+</head>
+<style>
+.container{
+margin : 0 auto;
 }
 
-function slideShow(){
-	var i;
-	var x=document.getElementsByClassName("slide");
-	for(i=0;i<x.length; i++){
-		x[i].style.display="none";
-	}
-	index++;
-	if(index>x.length){
-		index=1;
-	}
-	x[index-1].style.display="block";
-	setTimeout(slideShow,3000);
+.comment{
+width:1000px;
+border : 1px solid gray;
+margin:0 auto;
+text-align :center;
+padding :30px;
 }
-</script>
-    <body>
+</style>
+<% String test=request.getParameter("a"); %>
+<body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container">
@@ -58,27 +51,20 @@ function slideShow(){
             <div class="masthead-content">
                 <div class="container">
                     <h1 class="masthead-heading mb-0">2021 대구축제 </h1>
-                    <h2 class="masthead-subheading mb-0">대굴대굴</h2>
-                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#!">바로가기</a>
-                    <br> <br>
-                    <% int a; %>
-                    <a href="festival.jsp?a=1"><img class="slide" alt="" src="./img/축제1.jpg" width=1200px height=500px align="center"></a>
-<a href="festival.jsp?a=2"><img class="slide" alt="" src="./img/축제2.jpg" width=1200px height=500px align="center"></a>
-<a href="festival.jsp"><img class="slide" alt="" src="./img/축제3.jpg" width=1200px height=500px align="center"></a>
-                </div>
-            </div>
-            <div class="bg-circle-1 bg-circle"></div>
-            <div class="bg-circle-2 bg-circle"></div>
-            <div class="bg-circle-3 bg-circle"></div>
-            <div class="bg-circle-4 bg-circle"></div>
-            <div class="container">
-
+<div class="container">
+<img id="fimg" src="./img/축제<%=test%>.jpg" width=1200px height=500px align="center">
 </div>
-            </header>
+ </div>
+ </header>
+<br><br>
+<div class="comment">
+<h2>댓글 0개</h2>
+<textarea cols=100 rows=5 id="newcomment" name="newComment" align="center" placeholder="댓글 달기..."></textarea>
+<button type="submit" onclick="submitComment()">작성</button>
+<script>
 
-<session>
-<h1>=================================달력 들어갈 곳=========================</h1>
-</session>
+</script>
+</div>
 
 </body>
 </html>

@@ -10,7 +10,7 @@ window.onload=function(){
 	document.getElementById('login').onclick=function(){
 var id =document.getElementById('id');
 var password = document.getElementById('password');
-location.href = 'home.jsp?id=' + id.value + '&password=' + pw.value;
+location.href = 'home.jsp?id='+id.value+'&password='+password.value;
 	}
 	
 	document.getElementById('signin').onclick=function(){
