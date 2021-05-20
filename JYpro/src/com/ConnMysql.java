@@ -7,13 +7,6 @@ import java.sql.ResultSet;
 
 
 public class ConnMysql {
-
-	String ora_class="oracle.jdbc.driver.OracleDriver";
-	String mysql_class="com.mysql.cj.jdbc.Driver";
-	String ora_url="jdbc:oracle:thin:@localhost:1521:xe";
-	String mysql_url="jdbc:mysql://localhost:3306/spro?useUnicode=true&characterEncoding=UTF-8";
-	String mysql_id="root";
-	String mysql_pw="1234";
 	
 public Member ckLogin(String id, String pwd) {
 	
@@ -25,7 +18,7 @@ public Member ckLogin(String id, String pwd) {
 	try {
 	
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp_teamproject","jsp_user","asd0123!");
+		conn = DriverManager.getConnection("jdbc:mysql://mydb-qkr03210.clbvxqwpuapd.ap-northeast-2.rds.amazonaws.com:3306/jsp_teamproject","jsp_user","asd0123!");
 		pstmt=conn.prepareStatement("SELECT * FROM member WHERE ID=? AND PWD=?");
 		pstmt.setString(1, id);
 		pstmt.setString(2, pwd);

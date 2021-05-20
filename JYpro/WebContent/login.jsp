@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,22 +40,32 @@ input {
 </style>
 
 <body>
-<script>
-	$('#login').click(function(){
-		alert("123");
-	});
+<script type="text/javascript">
+window.onload=function(){
+	document.getElementById('login').onclick=function(){
+		var id = document.getElementById('id');
+		var pwd=document.getElementById('pwd');
+		location.href='Login2.jsp?id='+id.value+'&pwd='+pwd.value;
+	}
+	document.getElementById('signin').onclick=function(){
+		location.href='signin.jsp';
+	}
+	document.getElementById('logout').onclick=function(){
+		<%session.invalidate();%>
+		location.href='login.jsp';
+		}
+}
 </script>
 <div class=loginbox>
 <a href="home.jsp" id="logo"><h1>DaeGul</h1></a>
 
-<%String id="";
-if(session.getAttribute("id")!=null){
-id=(String)session.getAttribute("id");
-}
-if(!id.equals("")){
-	%>
+<%
+Object id = session.getAttribute("id");
+out.println(id);
+if ( id != null ){ 
+%>
 	<p><%=id%>님 환영합니다!</p>
-	<button>로그아웃</button>
+	<button id="logout">로그아웃</button>
 	<%}else{ %>
 <input type="text" placeholder="아이디" id="id">
 <br><br>
@@ -61,7 +73,7 @@ if(!id.equals("")){
 <br><br>
 <a href="searchid.jsp">아이디를 잊으셨나요?</a>
 <br><br>
-<button id="login">로그인</button>
+<button id="login">로그인 </button>
 <button id="signin">회원가입</button>
 </div>
 <div id="loginbottom">
