@@ -15,9 +15,9 @@ public class ConnMysql {
 	String mysql_id="root";
 	String mysql_pw="1234";
 	
-public Person ckLogin(String id, String pw) {
+public Member ckLogin(String id, String pwd) {
 	
-	Person member = null;
+	Member member = null;
 	Connection conn=null;
 	PreparedStatement pstmt=null;
 	ResultSet rs = null;
@@ -26,20 +26,16 @@ public Person ckLogin(String id, String pw) {
 	
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp_teamproject","jsp_user","asd0123!");
-		pstmt=conn.prepareStatement("SELECT * FROM PERSON WHERE ID=? AND PW=?");
+		pstmt=conn.prepareStatement("SELECT * FROM member WHERE ID=? AND PWD=?");
 		pstmt.setString(1, id);
-		pstmt.setString(2, pw);
+		pstmt.setString(2, pwd);
 		rs=pstmt.executeQuery();
 		if(rs.next()) {
-			member = new Person();
+			member = new Member();
 			member.setId(id);
-			member.setPw(pw);
+			member.setPwd(pwd);
 			member.setName(rs.getString("name"));
-			member.setAge(rs.getInt("age"));
-			member.setGender(rs.getString("gender"));
 			member.setPhone(rs.getString("phone"));
-	
-		
 		}
 		
 	}catch(Exception e){

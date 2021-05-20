@@ -5,19 +5,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<script>
-window.onload=function(){
-	document.getElementById('login').onclick=function(){
-var id =document.getElementById('id');
-var password = document.getElementById('password');
-location.href = 'home.jsp?id='+id.value+'&password='+password.value;
-	}
-	
-	document.getElementById('signin').onclick=function(){
-		location.href = 'signin.jsp';
-	}
-	
-}</script>
 </head>
 <style>
 h1{
@@ -49,12 +36,28 @@ input {
 #logo { text-decoration:none }
 
 </style>
+
 <body>
+<script>
+	$('#login').click(function(){
+		alert("123");
+	});
+</script>
 <div class=loginbox>
 <a href="home.jsp" id="logo"><h1>DaeGul</h1></a>
+
+<%String id="";
+if(session.getAttribute("id")!=null){
+id=(String)session.getAttribute("id");
+}
+if(!id.equals("")){
+	%>
+	<p><%=id%>님 환영합니다!</p>
+	<button>로그아웃</button>
+	<%}else{ %>
 <input type="text" placeholder="아이디" id="id">
 <br><br>
-<input type="password" placeholder="비밀번호" id="password">
+<input type="password" placeholder="비밀번호" id="pwd">
 <br><br>
 <a href="searchid.jsp">아이디를 잊으셨나요?</a>
 <br><br>
@@ -66,5 +69,7 @@ input {
 <h5>개인정보처리방침 </h5>
 <h5>약관</h5>
 </div>
+<%} %>
 </body>
 </html>
+
