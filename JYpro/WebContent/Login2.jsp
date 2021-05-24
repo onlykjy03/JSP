@@ -1,5 +1,5 @@
-<%@page import="com.ConnMysql"%>
-<%@page import="com.Member"%>
+<%@page import="kb.ConnMysql"%>
+<%@page import="kb.Member"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -23,7 +23,10 @@
 		session.setAttribute("id", id);
 		session.setAttribute("pwd", pwd);
 		session.setAttribute("name", member.getName());
-		session.setAttribute("phone", member.getPhone());}%>
-	<script>location.href='login.jsp';</script>
+		session.setAttribute("phone", member.getPhone());}
+	else{
+		out.println("<script>alert('아이디 혹은 비밀번호를 확인하세요!');history.back();</script>");
+	}%>
+	<script>location.href='home.jsp';</script>
 </body>
 </html>

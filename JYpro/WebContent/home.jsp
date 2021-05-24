@@ -48,8 +48,16 @@ function slideShow(){
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="signin.jsp">Sign Up</a></li>
+                         <%
+		Object id = (String) session.getAttribute("id");
+		if (id != null) {%>
+			<li class="nav-item"><%=id%>님, 환영합니다!</li>
+		<li class="nav-item"><a class="nav-link" href="login.jsp" onclick="location.href='logout.jsp'">Log Out</a></li>
+
+                        <%}else{ %>
+                                                  <li class="nav-item"><a class="nav-link" href="signin.jsp">Sign Up</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.jsp">Log In</a></li>
+                          <%} %>
                     </ul>
                 </div>
             </div>

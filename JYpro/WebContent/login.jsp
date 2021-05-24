@@ -1,87 +1,85 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <style>
-h1{
-color:#e6dc30;
-font-weight:bold;
+h1 {
+	color: #e6dc30;
+	font-weight: bold;
 }
-.loginbox{
-width : 400px;
-height :500px;
-border : 1px solid gray;
-margin:0 auto;
-text-align :center;
-}
-h5{
-display:inline;
-text-align:center;}
 
-#loginbottom{
-width:400px;
-height:100px;
-margin:0 auto;
-text-align:right;
-color:gray;
+.loginbox {
+	width: 400px;
+	height: 500px;
+	border: 1px solid gray;
+	margin: 0 auto;
+	text-align: center;
 }
+
+h5 {
+	display: inline;
+	text-align: center;
+}
+
+#loginbottom {
+	width: 400px;
+	height: 100px;
+	margin: 0 auto;
+	text-align: right;
+	color: gray;
+}
+
 input {
-  width:200px;
-  height:20px;
+	width: 200px;
+	height: 20px;
 }
-#logo { text-decoration:none }
 
+#logo {
+	text-decoration: none
+}
 </style>
 
 <body>
+
+	<div class=loginbox>
+		<a href="home.jsp" id="logo"><h1>DaeGul</h1></a>
+		<input type="text" placeholder="ì•„ì´ë””" id="id"> <br>
+		<br> <input type="password" placeholder="ë¹„ë°€ë²ˆí˜¸" id="pwd">
+		<br>
+		<br> <a href="searchid.jsp">ì•„ì´ë””ë¥¼ ìŠìœ¼ì…¨ë‚˜ìš”?</a> <br>
+		<br>
+		<button id="login" onclick="test01()">ë¡œê·¸ì¸</button>
+		<button id="signin" onclick="test02()">íšŒì›ê°€ì…</button>
+
+	</div>
+	<div id="loginbottom">
+		<h5>ë„ì›€ë§</h5>
+		<h5>ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨</h5>
+		<h5>ì•½ê´€</h5>
+	</div>
+
 <script type="text/javascript">
 window.onload=function(){
-	document.getElementById('login').onclick=function(){
+	test01 = function(){
 		var id = document.getElementById('id');
 		var pwd=document.getElementById('pwd');
 		location.href='Login2.jsp?id='+id.value+'&pwd='+pwd.value;
 	}
-	document.getElementById('signin').onclick=function(){
+	test02 = function(){
 		location.href='signin.jsp';
 	}
-	document.getElementById('logout').onclick=function(){
-		<%session.invalidate();%>
-		location.href='login.jsp';
-		}
+	
+// 	document.getElementById('login').onclick=
+// 	document.getElementById('signin').onclick
+// 	document.getElementById('logout').onclick
 }
-</script>
-<div class=loginbox>
-<a href="home.jsp" id="logo"><h1>DaeGul</h1></a>
 
-<%
-Object id = session.getAttribute("id");
-out.println(id);
-if ( id != null ){ 
-%>
-	<p><%=id%>´Ô È¯¿µÇÕ´Ï´Ù!</p>
-	<button id="logout">·Î±×¾Æ¿ô</button>
-	<%}else{ %>
-<input type="text" placeholder="¾ÆÀÌµğ" id="id">
-<br><br>
-<input type="password" placeholder="ºñ¹Ğ¹øÈ£" id="pwd">
-<br><br>
-<a href="searchid.jsp">¾ÆÀÌµğ¸¦ ÀØÀ¸¼Ì³ª¿ä?</a>
-<br><br>
-<button id="login">·Î±×ÀÎ </button>
-<button id="signin">È¸¿ø°¡ÀÔ</button>
-</div>
-<div id="loginbottom">
-<h5>µµ¿ò¸» </h5>
-<h5>°³ÀÎÁ¤º¸Ã³¸®¹æÄ§ </h5>
-<h5>¾à°ü</h5>
-</div>
-<%} %>
+</script>
 </body>
 </html>
 

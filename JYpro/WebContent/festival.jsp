@@ -41,8 +41,16 @@ padding :30px;
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="signin.jsp">Sign Up</a></li>
+                    <%
+		Object id = (String) session.getAttribute("id");
+		if (id != null) {%>
+			<li class="nav-item"><%=id%>님, 환영합니다!</li>
+		<li class="nav-item"><a class="nav-link" href="login.jsp" onclick="location.href='logout.jsp'">Log Out</a></li>
+
+                        <%}else{ %>
+                                                  <li class="nav-item"><a class="nav-link" href="signin.jsp">Sign Up</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.jsp">Log In</a></li>
+                          <%} %>
                     </ul>
                 </div>
             </div>
@@ -50,7 +58,7 @@ padding :30px;
         <header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container">
-                    <h1 class="masthead-heading mb-0">2021 대구축제 </h1>
+                    <h1 class="masthead-heading mb-0">축제 상세보기 페이지 </h1>
 <div class="container">
 <img id="fimg" src="./img/축제<%=test%>.jpg" width=1200px height=500px align="center">
 </div>
@@ -61,9 +69,7 @@ padding :30px;
 <h2>댓글 0개</h2>
 <textarea cols=100 rows=5 id="newcomment" name="newComment" align="center" placeholder="댓글 달기..."></textarea>
 <button type="submit" onclick="submitComment()">작성</button>
-<script>
 
-</script>
 </div>
 
 </body>
