@@ -62,6 +62,7 @@ padding :30px;
 <div class="container">
 <img id="fimg" src="./img/축제<%=test%>.jpg" width=1200px height=500px align="center">
 </div>
+     <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#!">부대시설</a>
  </div>
  </header>
 <br><br>

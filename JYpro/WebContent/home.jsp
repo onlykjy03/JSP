@@ -44,19 +44,19 @@ function slideShow(){
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="home.jsp">대구축제</a>
-                <a class="navbar-brand" href="bbs.jsp">커뮤니티</a>
+                <a class="navbar-brand" href="./bbs/bbs.jsp">커뮤니티</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                          <%
 		Object id = (String) session.getAttribute("id");
 		if (id != null) {%>
-			<li class="nav-item"><%=id%>님, 환영합니다!</li>
-		<li class="nav-item"><a class="nav-link" href="login.jsp" onclick="location.href='logout.jsp'">Log Out</a></li>
+			<li class="nav-item" style="color:white;"><%=id%>님, 환영합니다!</li>
+		<li class="nav-item"><a class="nav-link" href="login.jsp" onclick="location.href='./login/logout.jsp'">Log Out</a></li>
 
                         <%}else{ %>
-                                                  <li class="nav-item"><a class="nav-link" href="signin.jsp">Sign Up</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.jsp">Log In</a></li>
+                                                  <li class="nav-item"><a class="nav-link" href="./login/signin.jsp">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./login/login.jsp">Log In</a></li>
                           <%} %>
                     </ul>
                 </div>
@@ -67,7 +67,7 @@ function slideShow(){
                 <div class="container">
                     <h1 class="masthead-heading mb-0">2021 대구축제 </h1>
                     <h2 class="masthead-subheading mb-0">대굴대굴</h2>
-                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#!">바로가기</a>
+               
                     <br> <br>
                     <% int a; %>
                     <a href="festival.jsp?a=1"><img class="slide" alt="" src="./img/축제1.jpg" width=1200px height=500px align="center"></a>

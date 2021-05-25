@@ -53,8 +53,8 @@ input {
 		<br>
 		<br> <a href="searchid.jsp">아이디를 잊으셨나요?</a> <br>
 		<br>
-		<button id="login" onclick="test01()">로그인</button>
-		<button id="signin" onclick="test02()">회원가입</button>
+		<button id="login" onclick="login()">로그인</button>
+		<button id="signin" onclick="signup()">회원가입</button>
 
 	</div>
 	<div id="loginbottom">
@@ -65,12 +65,12 @@ input {
 
 <script type="text/javascript">
 window.onload=function(){
-	test01 = function(){
+	login = function(){
 		var id = document.getElementById('id');
 		var pwd=document.getElementById('pwd');
 		location.href='Login2.jsp?id='+id.value+'&pwd='+pwd.value;
 	}
-	test02 = function(){
+	signup = function(){
 		location.href='signin.jsp';
 	}
 	
